@@ -14,13 +14,17 @@ function Budget() {
       alert('Value should not exceed 20000');
     } 
     else if (newValue < remaining) {
-        alert("Value should not exceed remaining funds " + "£ " + remaining);
+        alert("Value should not exceed remaining funds £ " + remaining);
     }
     else if (newValue > prevValueRef.current) {
-        setBudget(newValue + 9);
+        let increase = newValue + 9
+        setBudget(increase);
+        prevValueRef.current = increase
     } 
     else if (newValue < prevValueRef.current) {
-        setBudget(newValue - 9);
+        let decrease = newValue - 9
+        setBudget(decrease);
+        prevValueRef.current = decrease
     }
     else {
         setBudget(newValue);
