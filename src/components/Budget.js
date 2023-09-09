@@ -31,11 +31,13 @@ function Budget() {
     }
   };
 
-
+  const Style = {
+    width: '300px'
+  }
 
   return (
-    <div className='alert alert-secondary'>
-      <label htmlFor="budget">Budget: £</label>
+    <div className='alert alert-secondary' style={Style}>
+      <label htmlFor="budget">Budget: $</label>
       <input
         required
         type="number"

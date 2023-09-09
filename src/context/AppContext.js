@@ -67,8 +67,13 @@ export const AppReducer = (state, action) => {
         case 'CHG_CURRENCY':
             action.type = "DONE";
             state.currency = action.payload;
+            console.log('Cambio de moneda:', action.payload);
+            // selectedCurrency = action.payload;
             return {
-                ...state
+                
+                ...state,
+                selectedCurrency: action.payload, // Actualiza la moneda seleccionada
+                
             }
 
         default:
@@ -91,7 +96,8 @@ const initialState = {
         { id: "£", name: 'Pound'},
         { id: "€", name: 'Euro'},
         { id: "₹", name: 'Ruppee'}
-     ]
+     ],
+     selectedCurrency: '$'
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
@@ -118,7 +124,7 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
             }}
         >
             {props.children}
